@@ -1,0 +1,583 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Bolen`s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Bolen Zhang">
+    
+
+    
+    <meta name="description" content="程序的流程控制结构一共有三种：顺序结构，选择结构，循环结构。 一、条件语句1.1 If语句语法格式： 123if 布尔表达式 &amp;#123;   /* 在布尔表达式为 true 时执行 */&amp;#125; 12345if 布尔表达式 &amp;#123;   /* 在布尔表达式为 true 时执行 */&amp;#125; else &amp;#123;  /* 在布尔表达式为 false 时执行 */&amp;#125; 1234">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bolen`s Blog">
+<meta property="og:url" content="http://yoursite.com/2018/04/06/第3章-分支循环/index.html">
+<meta property="og:site_name" content="Bolen`s Blog">
+<meta property="og:description" content="程序的流程控制结构一共有三种：顺序结构，选择结构，循环结构。 一、条件语句1.1 If语句语法格式： 123if 布尔表达式 &amp;#123;   /* 在布尔表达式为 true 时执行 */&amp;#125; 12345if 布尔表达式 &amp;#123;   /* 在布尔表达式为 true 时执行 */&amp;#125; else &amp;#123;  /* 在布尔表达式为 false 时执行 */&amp;#125; 1234">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-03T05:14:54.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bolen`s Blog">
+<meta name="twitter:description" content="程序的流程控制结构一共有三种：顺序结构，选择结构，循环结构。 一、条件语句1.1 If语句语法格式： 123if 布尔表达式 &amp;#123;   /* 在布尔表达式为 true 时执行 */&amp;#125; 12345if 布尔表达式 &amp;#123;   /* 在布尔表达式为 true 时执行 */&amp;#125; else &amp;#123;  /* 在布尔表达式为 false 时执行 */&amp;#125; 1234">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bolen`s Blog" title="Bolen`s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bolen`s Blog">Bolen`s Blog</a></h1>
+				<h2 class="blog-motto">Summarize &amp; share</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/index">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/04/06/第3章-分支循环/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Bolen Zhang" target="_blank" itemprop="author">Bolen Zhang</a>
+		
+  <p class="article-time">
+    <time datetime="2018-04-06T11:36:47.717Z" itemprop="datePublished"> Published 2018-04-06</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、条件语句"><span class="toc-number">1.</span> <span class="toc-text">一、条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-If语句"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 If语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-switch-语句"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 switch 语句</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、循环语句"><span class="toc-number">2.</span> <span class="toc-text">二、循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-跳出循环的语句"><span class="toc-number">2.1.</span> <span class="toc-text">2.2 跳出循环的语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-break语句"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.2.1 break语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-continue语句"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.2.2 continue语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-goto语句"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.2.3 goto语句</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<p>程序的流程控制结构一共有三种：顺序结构，选择结构，循环结构。</p>
+<h1 id="一、条件语句"><a href="#一、条件语句" class="headerlink" title="一、条件语句"></a>一、条件语句</h1><h2 id="1-1-If语句"><a href="#1-1-If语句" class="headerlink" title="1.1 If语句"></a>1.1 If语句</h2><p>语法格式：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 布尔表达式 &#123;</span><br><span class="line">   <span class="comment">/* 在布尔表达式为 true 时执行 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 布尔表达式 &#123;</span><br><span class="line">   <span class="comment">/* 在布尔表达式为 true 时执行 */</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">/* 在布尔表达式为 false 时执行 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 布尔表达式<span class="number">1</span> &#123;</span><br><span class="line">   <span class="comment">/* 在布尔表达式1为 true 时执行 */</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> 布尔表达式<span class="number">2</span>&#123;</span><br><span class="line">   <span class="comment">/* 在布尔表达式1为 false ,布尔表达式2为true时执行 */</span></span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="comment">/* 在上面两个布尔表达式都为false时，执行*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">/* 定义局部变量 */</span></span><br><span class="line">   <span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line"> </span><br><span class="line">   <span class="comment">/* 使用 if 语句判断布尔表达式 */</span></span><br><span class="line">   <span class="keyword">if</span> a &lt; <span class="number">20</span> &#123;</span><br><span class="line">       <span class="comment">/* 如果条件为 true 则执行以下语句 */</span></span><br><span class="line">       fmt.Printf(<span class="string">"a 小于 20\n"</span> )</span><br><span class="line">   &#125;</span><br><span class="line">   fmt.Printf(<span class="string">"a 的值为 : %d\n"</span>, a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果其中包含一个可选的语句组件(在评估条件之前执行)，则还有一个变体。它的语法是</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> statement; condition &#123;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (  </span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    <span class="keyword">if</span> num := <span class="number">10</span>; num % <span class="number">2</span> == <span class="number">0</span> &#123; <span class="comment">//checks if number is even</span></span><br><span class="line">        fmt.Println(num,<span class="string">"is even"</span>) </span><br><span class="line">    &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">        fmt.Println(num,<span class="string">"is odd"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要注意的是，num的定义在if里，那么只能够在该if..else语句块中使用，否则编译器会报错的。</p>
+</blockquote>
+<h2 id="1-2-switch-语句"><a href="#1-2-switch-语句" class="headerlink" title="1.2 switch 语句"></a>1.2 switch 语句</h2><p>switch是一个条件语句，它计算表达式并将其与可能匹配的列表进行比较，并根据匹配执行代码块。它可以被认为是一种惯用的方式来写多个if else子句。</p>
+<p>switch 语句用于基于不同条件执行不同动作，每一个 case 分支都是唯一的，从上直下逐一测试，直到匹配为止。<br>switch 语句执行的过程从上至下，直到找到匹配项，匹配项后面也不需要再加break。</p>
+<p>而如果switch没有表达式，它会匹配true</p>
+<p>Go里面switch默认相当于每个case最后带有break，匹配成功后不会自动向下执行其他case，而是跳出整个switch, 但是可以使用fallthrough强制执行后面的case代码。</p>
+<p>变量 var1 可以是任何类型，而 val1 和 val2 则可以是同类型的任意值。类型不被局限于常量或整数，但必须是相同的类型；或者最终结果为相同类型的表达式。<br>您可以<strong>同时测试多个可能符合条件的值，使用逗号分割它们</strong>，例如：case val1, val2, val3。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> var1 &#123;</span><br><span class="line">    <span class="keyword">case</span> val1:</span><br><span class="line">        ...</span><br><span class="line">    <span class="keyword">case</span> val2:</span><br><span class="line">        ...</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">/* 定义局部变量 */</span></span><br><span class="line">   <span class="keyword">var</span> grade <span class="keyword">string</span> = <span class="string">"B"</span></span><br><span class="line">   <span class="keyword">var</span> marks <span class="keyword">int</span> = <span class="number">90</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">switch</span> marks &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">90</span>: grade = <span class="string">"A"</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">80</span>: grade = <span class="string">"B"</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span> : grade = <span class="string">"C"</span>  <span class="comment">//case 后可以由多个数值</span></span><br><span class="line">      <span class="keyword">default</span>: grade = <span class="string">"D"</span>  </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">switch</span> &#123;</span><br><span class="line">      <span class="keyword">case</span> grade == <span class="string">"A"</span> :</span><br><span class="line">         fmt.Printf(<span class="string">"优秀!\n"</span> )     </span><br><span class="line">      <span class="keyword">case</span> grade == <span class="string">"B"</span>, grade == <span class="string">"C"</span> :</span><br><span class="line">         fmt.Printf(<span class="string">"良好\n"</span> )      </span><br><span class="line">      <span class="keyword">case</span> grade == <span class="string">"D"</span> :</span><br><span class="line">         fmt.Printf(<span class="string">"及格\n"</span> )      </span><br><span class="line">      <span class="keyword">case</span> grade == <span class="string">"F"</span>:</span><br><span class="line">         fmt.Printf(<span class="string">"不及格\n"</span> )</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">         fmt.Printf(<span class="string">"差\n"</span> );</span><br><span class="line">   &#125;</span><br><span class="line">   fmt.Printf(<span class="string">"你的等级是 %s\n"</span>, grade );      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如需贯通后续的case，就添加fallthrough</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> data [<span class="number">2</span>]<span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">switch</span> x := <span class="number">5</span>; x &#123;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		fmt.Println(x)</span><br><span class="line">	<span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">		x += <span class="number">10</span></span><br><span class="line">		fmt.Println(x)</span><br><span class="line">		<span class="keyword">fallthrough</span></span><br><span class="line">	<span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">		x += <span class="number">20</span></span><br><span class="line">		fmt.Println(x)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>结果</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">15</span></span><br><span class="line"><span class="number">35</span></span><br></pre></td></tr></table></figure>
+<p>case中的表达式是可选的，可以省略。如果该表达式被省略，则被认为是switch true，并且每个case表达式都被计算为true，并执行相应的代码块。</p>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (  </span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    num := <span class="number">75</span></span><br><span class="line">    <span class="keyword">switch</span> &#123; <span class="comment">// expression is omitted</span></span><br><span class="line">    <span class="keyword">case</span> num &gt;= <span class="number">0</span> &amp;&amp; num &lt;= <span class="number">50</span>:</span><br><span class="line">        fmt.Println(<span class="string">"num is greater than 0 and less than 50"</span>)</span><br><span class="line">    <span class="keyword">case</span> num &gt;= <span class="number">51</span> &amp;&amp; num &lt;= <span class="number">100</span>:</span><br><span class="line">        fmt.Println(<span class="string">"num is greater than 51 and less than 100"</span>)</span><br><span class="line">    <span class="keyword">case</span> num &gt;= <span class="number">101</span>:</span><br><span class="line">        fmt.Println(<span class="string">"num is greater than 100"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>switch的注意事项</p>
+<ol>
+<li>case后的常量值不能重复</li>
+<li>case后可以有多个常量值</li>
+<li>fallthrough应该是某个case的最后一行。如果它出现在中间的某个地方，编译器就会抛出错误。</li>
+</ol>
+</blockquote>
+<p><strong>Type Switch</strong></p>
+<p>switch 语句还可以被用于 type-switch 来判断某个 interface 变量中实际存储的变量类型。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> x.(<span class="keyword">type</span>)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">type</span>:</span><br><span class="line">       statement(s);      </span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">type</span>:</span><br><span class="line">       statement(s); </span><br><span class="line">    <span class="comment">/* 你可以定义任意个数的case */</span></span><br><span class="line">    <span class="keyword">default</span>: <span class="comment">/* 可选 */</span></span><br><span class="line">       statement(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">var</span> x <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">     </span><br><span class="line">   <span class="keyword">switch</span> i := x.(<span class="keyword">type</span>) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="literal">nil</span>:	  </span><br><span class="line">         fmt.Printf(<span class="string">" x 的类型 :%T"</span>,i)                </span><br><span class="line">      <span class="keyword">case</span> <span class="keyword">int</span>:	  </span><br><span class="line">         fmt.Printf(<span class="string">"x 是 int 型"</span>)                       </span><br><span class="line">      <span class="keyword">case</span> <span class="keyword">float64</span>:</span><br><span class="line">         fmt.Printf(<span class="string">"x 是 float64 型"</span>)           </span><br><span class="line">      <span class="keyword">case</span> <span class="function"><span class="keyword">func</span><span class="params">(<span class="keyword">int</span>)</span> <span class="title">float64</span>:</span></span><br><span class="line">         fmt.Printf("x 是 func(int) 型")                      </span><br><span class="line">      <span class="keyword">case</span> <span class="keyword">bool</span>, <span class="keyword">string</span>:</span><br><span class="line">         fmt.Printf(<span class="string">"x 是 bool 或 string 型"</span> )       </span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">         fmt.Printf(<span class="string">"未知型"</span>)     </span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>结果</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x 的类型 :&lt;<span class="literal">nil</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>##1.3 select 语句</p>
+<p>select 语句类似于 switch 语句，但是select会随机执行一个可运行的case。如果没有case可运行，它将阻塞，直到有case可运行。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">var</span> c1, c2, c3 <span class="keyword">chan</span> <span class="keyword">int</span></span><br><span class="line">   <span class="keyword">var</span> i1, i2 <span class="keyword">int</span></span><br><span class="line">   <span class="keyword">select</span> &#123;</span><br><span class="line">      <span class="keyword">case</span> i1 = &lt;-c1:</span><br><span class="line">         fmt.Printf(<span class="string">"received "</span>, i1, <span class="string">" from c1\n"</span>)</span><br><span class="line">      <span class="keyword">case</span> c2 &lt;- i2:</span><br><span class="line">         fmt.Printf(<span class="string">"sent "</span>, i2, <span class="string">" to c2\n"</span>)</span><br><span class="line">      <span class="keyword">case</span> i3, ok := (&lt;-c3):  <span class="comment">// same as: i3, ok := &lt;-c3</span></span><br><span class="line">         <span class="keyword">if</span> ok &#123;</span><br><span class="line">            fmt.Printf(<span class="string">"received "</span>, i3, <span class="string">" from c3\n"</span>)</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            fmt.Printf(<span class="string">"c3 is closed\n"</span>)</span><br><span class="line">         &#125;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">         fmt.Printf(<span class="string">"no communication\n"</span>)</span><br><span class="line">   &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">no communication</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>每个case都必须是一个通信</p>
+</li>
+<li><p>所有channel表达式都会被求值</p>
+</li>
+<li><p>所有被发送的表达式都会被求值</p>
+</li>
+<li><p>如果任意某个通信可以进行，它就执行；其他被忽略。</p>
+</li>
+<li><p>如果有多个case都可以运行，Select会随机公平地选出一个执行。其他不会执行。 </p>
+</li>
+<li><p>否则：</p>
+<p>如果有default子句，则执行该语句。</p>
+<p>如果没有default字句，select将阻塞，直到某个通信可以运行；Go不会重新对channel或值进行求值。</p>
+</li>
+</ul>
+<h1 id="二、循环语句"><a href="#二、循环语句" class="headerlink" title="二、循环语句"></a>二、循环语句</h1><p>循环语句表示条件满足，可以反复的执行某段代码。</p>
+<p>for是唯一的循环语句。(Go没有while循环)</p>
+<p>##2.1 For语句</p>
+<p>语法结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for init; condition; post &#123; &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>初始化语句只执行一次。在初始化循环之后，将检查该条件。如果条件计算为true，那么{}中的循环体将被执行，然后是post语句。post语句将在循环的每次成功迭代之后执行。在执行post语句之后，该条件将被重新检查。如果它是正确的，循环将继续执行，否则循环终止。</p>
+</blockquote>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (  </span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">        fmt.Printf(<span class="string">" %d"</span>,i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在for循环中声明的变量仅在循环范围内可用。因此，i不能在外部访问循环。</p>
+</blockquote>
+<p><strong>所有的三个组成部分，即初始化、条件和post都是可选的。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for condition &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>效果与while相似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>效果与for(;;) 一样</p>
+<p>for 循环的 range 格式可以对 slice、map、数组、字符串等进行迭代循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for key, value := range oldMap &#123;</span><br><span class="line">    newMap[key] = value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> b <span class="keyword">int</span> = <span class="number">15</span></span><br><span class="line">   <span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line">   numbers := [<span class="number">6</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>&#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/* for 循环 */</span></span><br><span class="line">   <span class="keyword">for</span> a := <span class="number">0</span>; a &lt; <span class="number">10</span>; a++ &#123;</span><br><span class="line">      fmt.Printf(<span class="string">"a 的值为: %d\n"</span>, a)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> a &lt; b &#123;</span><br><span class="line">      a++</span><br><span class="line">      fmt.Printf(<span class="string">"a 的值为: %d\n"</span>, a)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i,x:= <span class="keyword">range</span> numbers &#123;</span><br><span class="line">      fmt.Printf(<span class="string">"第 %d 位 x 的值 = %d\n"</span>, i,x)</span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">a 的值为: 0</span><br><span class="line">a 的值为: 1</span><br><span class="line">a 的值为: 2</span><br><span class="line">a 的值为: 3</span><br><span class="line">a 的值为: 4</span><br><span class="line">a 的值为: 5</span><br><span class="line">a 的值为: 6</span><br><span class="line">a 的值为: 7</span><br><span class="line">a 的值为: 8</span><br><span class="line">a 的值为: 9</span><br><span class="line">a 的值为: 1</span><br><span class="line">a 的值为: 2</span><br><span class="line">a 的值为: 3</span><br><span class="line">a 的值为: 4</span><br><span class="line">a 的值为: 5</span><br><span class="line">a 的值为: 6</span><br><span class="line">a 的值为: 7</span><br><span class="line">a 的值为: 8</span><br><span class="line">a 的值为: 9</span><br><span class="line">a 的值为: 10</span><br><span class="line">a 的值为: 11</span><br><span class="line">a 的值为: 12</span><br><span class="line">a 的值为: 13</span><br><span class="line">a 的值为: 14</span><br><span class="line">a 的值为: 15</span><br><span class="line">第 0 位 x 的值 = 1</span><br><span class="line">第 1 位 x 的值 = 2</span><br><span class="line">第 2 位 x 的值 = 3</span><br><span class="line">第 3 位 x 的值 = 5</span><br><span class="line">第 4 位 x 的值 = 0</span><br><span class="line">第 5 位 x 的值 = 0</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-跳出循环的语句"><a href="#2-2-跳出循环的语句" class="headerlink" title="2.2 跳出循环的语句"></a>2.2 跳出循环的语句</h2><h3 id="2-2-1-break语句"><a href="#2-2-1-break语句" class="headerlink" title="2.2.1 break语句"></a>2.2.1 break语句</h3><p>break：跳出循环体。break语句用于在结束其正常执行之前突然终止for循环</p>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (  </span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> i &gt; <span class="number">5</span> &#123;</span><br><span class="line">            <span class="keyword">break</span> <span class="comment">//loop is terminated if i &gt; 5</span></span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(<span class="string">"\nline after for loop"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-2-continue语句"><a href="#2-2-2-continue语句" class="headerlink" title="2.2.2 continue语句"></a>2.2.2 continue语句</h3><p>continue：跳出一次循环。continue语句用于跳过for循环的当前迭代。在continue语句后面的for循环中的所有代码将不会在当前迭代中执行。循环将继续到下一个迭代。</p>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (  </span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-3-goto语句"><a href="#2-2-3-goto语句" class="headerlink" title="2.2.3 goto语句"></a>2.2.3 goto语句</h3><p>goto：可以无条件地转移到过程中指定的行</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">/* 定义局部变量 */</span></span><br><span class="line">   <span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 循环 */</span></span><br><span class="line">   LOOP: <span class="keyword">for</span> a &lt; <span class="number">20</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> a == <span class="number">15</span> &#123;</span><br><span class="line">         <span class="comment">/* 跳过迭代 */</span></span><br><span class="line">         a = a + <span class="number">1</span></span><br><span class="line">         <span class="keyword">goto</span> LOOP</span><br><span class="line">      &#125;</span><br><span class="line">      fmt.Printf(<span class="string">"a的值为 : %d\n"</span>, a)</span><br><span class="line">      a++     </span><br><span class="line">   &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/04/06/第3章-分支循环/" data-title="Bolen`s Blog" data-tsina="zliyong007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/04/06/第1章-简介和配置/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/04/06/第4章-数组和切片/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、条件语句"><span class="toc-number">1.</span> <span class="toc-text">一、条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-If语句"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 If语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-switch-语句"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 switch 语句</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、循环语句"><span class="toc-number">2.</span> <span class="toc-text">二、循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-跳出循环的语句"><span class="toc-number">2.1.</span> <span class="toc-text">2.2 跳出循环的语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-break语句"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.2.1 break语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-continue语句"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.2.2 continue语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-goto语句"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.2.3 goto语句</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/others/" title="others">others<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://liyuechun.org/" target="_blank" title="黎跃春">黎跃春</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/bolenzhang" target="_blank" title="My cnblog">My cnblog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰">阮一峰</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=zliyong007&verifier=a1405918&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 立德立言 无问西东 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/zliyong007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:zliyong007@163.com## e.g. imjark@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="Bolen Zhang">Bolen Zhang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
