@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Bolen</title>
+    <title>Bolen`s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Bolen Zhang">
@@ -13,13 +13,13 @@
     
     <meta name="description" content="This description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bolen">
+<meta property="og:title" content="Bolen`s Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Bolen">
+<meta property="og:site_name" content="Bolen`s Blog">
 <meta property="og:description" content="This description">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bolen">
+<meta name="twitter:title" content="Bolen`s Blog">
 <meta name="twitter:description" content="This description">
 
     
@@ -39,11 +39,11 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="Bolen" title="Bolen"/></a>
+				<a href="/"><img src="/img/logo.png" alt="Bolen`s Blog" title="Bolen`s Blog"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Bolen">Bolen</a></h1>
+				<h1 class="site-name"><a href="/" title="Bolen`s Blog">Bolen`s Blog</a></h1>
 				<h2 class="blog-motto">Summarize &amp; share</h2>
 			</div>
 			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
@@ -91,7 +91,7 @@
 		<a href="/about" title="Bolen Zhang" target="_blank" itemprop="author">Bolen Zhang</a>
 		
   <p class="article-time">
-    <time datetime="2018-04-06T04:35:21.856Z" itemprop="datePublished"> Published 2018-04-06</time>
+    <time datetime="2018-04-06T11:33:38.186Z" itemprop="datePublished"> Published 2018-04-06</time>
     
   </p>
 </header>
@@ -102,93 +102,11 @@
 <li>安装了node.js、npm</li>
 </ul>
 <h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>在你的github中新创建一个仓库，仓库名字必须是<em>username</em>.github.io,例如我的是bolen.github.io</p>
-<p><img src="C:\Users\bolen\Desktop\gitrepo.png" alt="gitrepo"></p>
-<h3 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h3><p>如果你之前在本机用过github，并且以及产生ssh key则可忽略此步骤。</p>
-<p>配置此步骤是在github服务器端记录git bash客户端电脑的公钥，这样就不用每次提交代码都填写用户名和密码了。</p>
-<p>gitbash执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br><span class="line"></span><br><span class="line">id_rsa  id_rsa.pub  known_hosts  themes/</span><br></pre></td></tr></table></figure>
-<p>如果之前产生过公钥就会有如上图所示文件，如果提示No such file or directory 说明你是第一次使用git，则产生公钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure>
-<p>然后查看并复制public key:</p>
-<p><img src="C:\Users\bolen\Desktop\360截图17571124393385.png" alt="360截图17571124393385"></p>
-<p>在github中添加此公钥：</p>
-<p>settings–&gt; SSH and GPG keys –&gt; New SSH key，将上面的公钥粘贴到此处。</p>
-<p><img src="C:\Users\bolen\Desktop\360截图167204086410894.png" alt="360截图167204086410894"></p>
-<h3 id="测试github-key添加是否成功"><a href="#测试github-key添加是否成功" class="headerlink" title="测试github key添加是否成功"></a>测试github key添加是否成功</h3><p>gitbash中如下命令：</p>
-<p><code>$ ssh -T git@github.com</code></p>
-<p>如果提示<code>Are you sure you want to continue connecting (yes/no)?</code>，输入yes，然后会看到类似下面的信息：</p>
-<blockquote>
-<p>Hi bolenzhang! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-</blockquote>
-<p>说明你的SSH key已配置成功。</p>
-<p>此时你还需要配置：</p>
-<p><code>$ git config --global user.name &quot;bolenzhang&quot;// 换成你自己的github用户名</code><br><code>$ git config --global user.email  &quot;xxx@163.com&quot;// 填写你的github注册邮箱</code></p>
-<h3 id="Hexo相关操作"><a href="#Hexo相关操作" class="headerlink" title="Hexo相关操作"></a>Hexo相关操作</h3><p><strong>hexo简介</strong> </p>
-<p>Hexo是一个简单、快速、强大的基于 Github Pages 的博客发布工具，支持Markdown格式，有众多优秀插件和主题。</p>
-<p>官网： <a href="http://hexo.io" target="_blank" rel="noopener">http://hexo.io</a><br>github: <a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
-<p>由于github pages存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，hexo将这些md文件都放在本地，每次写完文章后调用写好的命令来批量完成相关页面的生成，然后再将有改动的页面提交到github。</p>
-<p><strong>hexo安装</strong></p>
-<p><code>$ npm install -g hexo</code></p>
-<p><strong>初始化</strong></p>
-<p>在电脑里新建一个文件夹用以存放博客相关内容，我的是C:\Users\bolen\myblog.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd C:\Users\bolen\myblog</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-<p>hexo会自动下载一些文件到这个目录，包括node_modules.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g # 生成html文件到public目录</span><br><span class="line">$ hexo s # 开启本地预览服务</span><br></pre></td></tr></table></figure>
-<p>此时打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可看到内容，如果碰到浏览器刷不出来此页面的情况，请坚持4000端口是否被占用。</p>
-<p>第一次初始化的时候hexo会呈现一篇名为Hello World的文章，默认主题。</p>
-<h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>默认的主题比较丑，大家可以更换自己喜欢的主题，<a href="https://hexo.io/themes/" target="_blank" rel="noopener">官方主题</a>，</p>
-<p>首先下载这个主题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd  C:\Users\bolen\myblog\hexo</span><br><span class="line"></span><br><span class="line">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-<p>然后将/hexo/themes中的_config.yml中的theme： landscape改为theme：yilia，然后重新执行<code>hexo g</code>来重新生成。</p>
-<p>如果出现一些莫名其妙的问题，可以先执行<code>hexo clean</code>来清理一下public的内容，然后再来重新生成和发布。</p>
-<h3 id="上传到github"><a href="#上传到github" class="headerlink" title="上传到github"></a>上传到github</h3><ol>
-<li>配置<code>_config.yml</code>中有关deploy的部分：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:liuxianan/liuxianan.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>安装插件</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><p>提交代码</p>
-<p>此时打开git bash 输入<code>hexo d</code>就会将本次有改动的代码全部提交。</p>
-</li>
-</ol>
-<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>到hexo根目录然后执行：</p>
-<h3 id="创建new-post"><a href="#创建new-post" class="headerlink" title="创建new post"></a>创建new post</h3><p><code>hexo new ‘文章名’</code></p>
-<p>hexo会帮我们在<code>_posts</code>下生成相关md文件. 当然你也可以直接自己新建md文件，用这个命令的好处是帮我们自动生成了时间。这里一定要注意新建的时候不要用windows自带的记事本，我曾被这里坑了很久！ 另外MarkDown的编辑器推荐用Atom或Typora。</p>
-<p><strong>注意：</strong> Hexo对MarkDown文档头有严格的规范，官方称为 <em>Front-matter</em>, 即两个—中间的部分，一般完整格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: postName #文章页面上的显示名称，如果用hexo new的方式会自动生成</span><br><span class="line">date: 2018-2-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改</span><br><span class="line">categories: #分类 可以直接空格跟在后面，也可以如下这种：</span><br><span class="line">- 札记</span><br><span class="line">tags: [tag1,tag2,tag3] #文章标签，可空，多标签可以用这种也可以用上面- 札记的方式。</span><br><span class="line">toc: true  #是否显示目录，false不显示，true显示，需要主题支持</span><br><span class="line">top:  #填数字，值越大的文章在首页就越置顶，需要主题支持</span><br><span class="line">comments: true  #是否允许评论，需要主题支持</span><br><span class="line">keywords: &apos;&apos;    #文章关键词，需要主题支持</span><br><span class="line">description:  &apos;文章摘要，可以是一大段，</span><br><span class="line">可以换行，用英文引号括起来&apos;  #不填则根据主题设计截取对应字数</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">以下是正文</span><br></pre></td></tr></table></figure>
-<p><strong>需要额外注意的是：</strong>每个: 一定要有一个空格。更多Front-matter规范参见<a href="https://hexo.io/zh-cn/docs/front-matter.html" target="_blank" rel="noopener">官方文档：</a></p>
-<p>那么<code>hexo new page &#39;postName&#39;</code>命令和<code>hexo new &#39;postName&#39;</code>有什么区别呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;my-second-blog&quot;</span><br></pre></td></tr></table></figure>
-<p>生成如下：</p>
-<p><img src="http://image.liuxianan.com/201608/20160823_184852_854_6502.png" alt="img"></p>
-<p>最终部署时生成：<code>hexo\public\my-second-blog\index.html</code>，但是它不会作为文章出现在博文目录。</p>
-<h3 id="推送到github"><a href="#推送到github" class="headerlink" title="推送到github"></a>推送到github</h3><p>然后执行hexo d -g命令即可生成博文了，有时需要先执行hexo clean。</p>
-<h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><p>常用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br><span class="line">hexo deploy -g  #生成加部署</span><br><span class="line">hexo server -g  #生成加预览</span><br><span class="line"></span><br><span class="line">命令的简写</span><br><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
-<p>部署文件需要三步</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo c</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>有时不需要hexo g</p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1-如何显示博文摘要"><a href="#1-如何显示博文摘要" class="headerlink" title="1. 如何显示博文摘要"></a>1. 如何显示博文摘要</h3><p>在合适的位置加上<code>&lt;!--more--&gt;</code>即可</p>
-<h3 id="2-如何显示分类、标签"><a href="#2-如何显示分类、标签" class="headerlink" title="2. 如何显示分类、标签"></a>2. 如何显示分类、标签</h3><p>默认没有启用 <code>/tags</code> 和 <code>/categories</code>页面，如果需要启用请在博客目录下的<code>source</code>文件夹中分别建立<code>tags</code> 和 <code>categories</code>文件夹每个文件夹中分别包含一个<code>index.md</code>文件。内容为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layout: tags (或categories)</span><br><span class="line">title: tags (或categories)</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>​      因为主题中已经内置了这两个页面的模板，所以他们会被正确的解析出来。</p>
-<p><strong>其实上面可以简化位hexo new page indexs/categories，就会在source文件夹下自动生存所需的两个文件夹以及index.md，只是index.md需要用上述的内容格式填写。</strong></p>
-<h3 id="3-如何建立自我介绍页面（About页面）"><a href="#3-如何建立自我介绍页面（About页面）" class="headerlink" title="3. 如何建立自我介绍页面（About页面）"></a>3. 如何建立自我介绍页面（About页面）</h3><blockquote>
-<p>首先在主目录找到<code>_config.yml</code>，找到url添加<code>about_dir: about</code>到这个板块。然后在<code>/source</code>里面建立about文件夹。在about文件夹里建立index.md。编辑index.md就和发布其他的文章一样，格式都一样。</p>
-</blockquote>
-<h3 id="4-如何修改主题的颜色"><a href="#4-如何修改主题的颜色" class="headerlink" title="4. 如何修改主题的颜色"></a>4. 如何修改主题的颜色</h3><blockquote>
-<p>包括颜色在内的很多变量都在<code>jacman/source/css/_base/variable.styl</code>文件中，可以修改成你喜欢的。</p>
-</blockquote>
-<h3 id="5-为什么开启了微博秀后，显示是空白的，没有内容展示？"><a href="#5-为什么开启了微博秀后，显示是空白的，没有内容展示？" class="headerlink" title="5. 为什么开启了微博秀后，显示是空白的，没有内容展示？ "></a>5. <strong>为什么开启了微博秀后，显示是空白的，没有内容展示？ </strong></h3><blockquote>
-<p>每次修改参数都会这样，需要多刷新几次或者上传到服务器上就好了。</p>
-</blockquote>
-
         
         
         <p class="article-more-link">
+          
+            <a href="/2018/04/06/my-first-blog/#more">Read More</a>
           
        </p>
     </div>
@@ -364,7 +282,7 @@
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=a1405918&dpc=1"></iframe>
 </div>
 
 
