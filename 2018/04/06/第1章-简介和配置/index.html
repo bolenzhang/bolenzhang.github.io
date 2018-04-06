@@ -4,19 +4,20 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Bolen`s Blog</title>
+    <title>GO基础【一】：介绍和安装 | Bolen`s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Bolen Zhang">
     
 
     
-    <meta name="description" content="一、介绍和安装1.介绍创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 1.1 什么是GolangGo也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。 Golang的主要目标是使高可用性和可伸缩的web应用程序的开发变得简单易行。 1.">
+    <meta name="description" content="一、介绍和安装1.介绍Golang简史创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 2017年发布GO1.8、1.9版本 2018年2月16日发布GO1.10版本 Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“">
+<meta name="keywords" content="go基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bolen`s Blog">
+<meta property="og:title" content="GO基础【一】：介绍和安装">
 <meta property="og:url" content="http://yoursite.com/2018/04/06/第1章-简介和配置/index.html">
 <meta property="og:site_name" content="Bolen`s Blog">
-<meta property="og:description" content="一、介绍和安装1.介绍创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 1.1 什么是GolangGo也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。 Golang的主要目标是使高可用性和可伸缩的web应用程序的开发变得简单易行。 1.">
+<meta property="og:description" content="一、介绍和安装1.介绍Golang简史创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 2017年发布GO1.8、1.9版本 2018年2月16日发布GO1.10版本 Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/001_%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85.jpg">
 <meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.jpg">
@@ -28,10 +29,10 @@
 <meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/land1.bmp">
 <meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.bmp">
 <meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/guanjianzi.jpg">
-<meta property="og:updated_time" content="2018-03-27T01:49:58.000Z">
+<meta property="og:updated_time" content="2018-04-06T15:18:54.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bolen`s Blog">
-<meta name="twitter:description" content="一、介绍和安装1.介绍创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 1.1 什么是GolangGo也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。 Golang的主要目标是使高可用性和可伸缩的web应用程序的开发变得简单易行。 1.">
+<meta name="twitter:title" content="GO基础【一】：介绍和安装">
+<meta name="twitter:description" content="一、介绍和安装1.介绍Golang简史创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 2017年发布GO1.8、1.9版本 2018年2月16日发布GO1.10版本 Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“">
 <meta name="twitter:image" content="http://om1c35wrq.bkt.clouddn.com/001_%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85.jpg">
 
     
@@ -94,14 +95,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/06/第1章-简介和配置/" title="" itemprop="url"></a>
+      <a href="/2018/04/06/第1章-简介和配置/" title="GO基础【一】：介绍和安装" itemprop="url">GO基础【一】：介绍和安装</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Bolen Zhang" target="_blank" itemprop="author">Bolen Zhang</a>
 		
   <p class="article-time">
-    <time datetime="2018-04-06T11:36:47.717Z" itemprop="datePublished"> Published 2018-04-06</time>
+    <time datetime="2018-04-06T15:18:54.223Z" itemprop="datePublished"> Published 2018-04-06</time>
     
   </p>
 </header>
@@ -110,19 +111,33 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍和安装"><span class="toc-number">1.</span> <span class="toc-text">一、介绍和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-number">1.1.</span> <span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-什么是Golang"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 什么是Golang</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-为什么选择Golang"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 为什么选择Golang</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-number">1.2.</span> <span class="toc-text">2.安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1下载"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-windows下安装并配置环境变量"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 windows下安装并配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-mac系统安装并配置"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 mac系统安装并配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、搭建开发工具"><span class="toc-number">2.</span> <span class="toc-text">二、搭建开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用atom"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-使用Goland"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 使用Goland</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-其他开发工具"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 其他开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、第一个程序：HelloWorld"><span class="toc-number">3.</span> <span class="toc-text">三、第一个程序：HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-编写第一个程序"><span class="toc-number">3.0.1.</span> <span class="toc-text">3.1 编写第一个程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-第一个程序的解释说明"><span class="toc-number">3.0.2.</span> <span class="toc-text">3.2 第一个程序的解释说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-package"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">3.2.1 package</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-import"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">3.2.2  import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-main"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">3.3.3 main</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、编码规范"><span class="toc-number">4.</span> <span class="toc-text">四、编码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-编码规范"><span class="toc-number">4.0.1.</span> <span class="toc-text">4.1 编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-注释"><span class="toc-number">4.0.2.</span> <span class="toc-text">4.2 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-标识符"><span class="toc-number">4.0.3.</span> <span class="toc-text">4.3 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-语句的结尾"><span class="toc-number">4.0.4.</span> <span class="toc-text">4.4 语句的结尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-关键字"><span class="toc-number">4.0.5.</span> <span class="toc-text">4.5 关键字</span></a></li></ol></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍和安装"><span class="toc-text">一、介绍和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang简史"><span class="toc-text">Golang简史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang有哪些特点？"><span class="toc-text">Golang有哪些特点？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-text">2.安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1下载"><span class="toc-text">2.1下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-windows下安装并配置环境变量"><span class="toc-text">2.2 windows下安装并配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-mac系统安装并配置"><span class="toc-text">2.3 mac系统安装并配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、搭建开发工具"><span class="toc-text">二、搭建开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用atom"><span class="toc-text">2.1 使用atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-使用Goland"><span class="toc-text">2.2 使用Goland</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-其他开发工具"><span class="toc-text">2.3 其他开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、第一个程序：HelloWorld"><span class="toc-text">三、第一个程序：HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-编写第一个程序"><span class="toc-text">3.1 编写第一个程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-第一个程序的解释说明"><span class="toc-text">3.2 第一个程序的解释说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-package"><span class="toc-text">3.2.1 package</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-import"><span class="toc-text">3.2.2  import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-main"><span class="toc-text">3.3.3 main</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、编码规范概要"><span class="toc-text">四、编码规范概要</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-编码规范"><span class="toc-text">4.1 编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-注释"><span class="toc-text">4.2 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-标识符"><span class="toc-text">4.3 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-语句的结尾"><span class="toc-text">4.4 语句的结尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-关键字"><span class="toc-text">4.5 关键字</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="一、介绍和安装"><a href="#一、介绍和安装" class="headerlink" title="一、介绍和安装"></a>一、介绍和安装</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><p>创立时间<br>2007年 google作为20%项目开始研发<br>2009年11月10日 开源，获得TIOBE年度语言<br>2012年3月28日 发布Go1.0版本<br>2016年8月18日 发布Go1.7版本</p>
-<h3 id="1-1-什么是Golang"><a href="#1-1-什么是Golang" class="headerlink" title="1.1 什么是Golang"></a>1.1 什么是Golang</h3><p>Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。</p>
+		<h1 id="一、介绍和安装"><a href="#一、介绍和安装" class="headerlink" title="一、介绍和安装"></a>一、介绍和安装</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><h3 id="Golang简史"><a href="#Golang简史" class="headerlink" title="Golang简史"></a>Golang简史</h3><p>创立时间<br>2007年 google作为20%项目开始研发<br>2009年11月10日 开源，获得TIOBE年度语言<br>2012年3月28日 发布Go1.0版本<br>2016年8月18日 发布Go1.7版本</p>
+<p>2017年发布GO1.8、1.9版本</p>
+<p>2018年2月16日发布GO1.10版本</p>
+<p>Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“21世纪的C语言”，因其从C语言继承了相似的表达式语法、控制流结构、基础数据类型、调用参数传值、指针等很多思想，当然也因其具有C语言似的得天独厚的优势：编译后机器码的运行效率以及和现有操作系统的无缝适配。</p>
 <p>Golang的主要目标是使高可用性和可伸缩的web应用程序的开发变得简单易行。</p>
-<h3 id="1-2-为什么选择Golang"><a href="#1-2-为什么选择Golang" class="headerlink" title="1.2 为什么选择Golang"></a>1.2 为什么选择Golang</h3><p>当有很多其他语言(如python、ruby、node.js)时，为什么选择Golang作为服务端编程语言呢?</p>
-<ul>
-<li>并发是语言的一个固有部分。因此编写多线程程序是小菜一碟。这是通过Goroutines和channel实现的，我们将在后面的教程中讨论。</li>
-<li>Golang是一种编译语言。源代码编译成原生二进制。这在解释语言(如nodejs中使用的JavaScript)中丢失了。</li>
-<li>语言规范非常简单。整个规范适合于一个页面，您甚至可以使用它来编写自己的编译器:)</li>
-<li>go编译器支持静态链接。所有的go代码都可以静态地链接到一个大的fat二进制文件中，并且可以轻松地部署到云服务器中，而不用担心依赖关系。</li>
+<h3 id="Golang有哪些特点？"><a href="#Golang有哪些特点？" class="headerlink" title="Golang有哪些特点？"></a>Golang有哪些特点？</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li><p><strong>对多线程的支持</strong> ：GO语言的动态栈使得轻量级线程goroutine的初始栈可以很小，因此，创建一个goroutine的代价很小，创建百万级的goroutine是完全可行的。go的多线程是通过Goroutines和channel实现的。</p>
+</li>
+<li><p><strong>运行效率高</strong> ：Golang是一种编译语言，源代码编译成二进制机器运行效率高。</p>
+</li>
+<li><p><strong>语言规范简单</strong></p>
+</li>
+<li><p><strong>go编译器支持静态链接：</strong>所有的go代码都可以静态地链接到一个大的fat二进制文件中，并且可以轻松地部署到云服务器中，而不用担心依赖关系。</p>
+</li>
+<li><p><strong>标准库提供了清晰的构建模块和公共接口：</strong> 包含I/O操作、文本处理、图像、密码学、网络和分布式应用程序等，并支持许多标准化的文件格式和编解码协议。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p><strong>当然go语言也并非完美的，有如下的缺点：</strong></p>
+</li>
+<li><p><strong>不算是面向对象的语言</strong> </p>
+<p>很多人说go并不是面向对象的语言，因其没有类（struct和其他语言中的类不太一样），没有继承。</p>
+</li>
+<li><p>go本身有只有很少的特性，也不太可能支持添加太多的特性。</p>
+<p>它没有隐式的类型转换，没有构造函数和析构函数，没有运算符重载，没有默认参数，没有泛型，没有异常，没有宏，没有装饰器，更没有线程局部存储</p>
+</li>
 </ul>
 <h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><h3 id="2-1下载"><a href="#2-1下载" class="headerlink" title="2.1下载"></a>2.1下载</h3><p>在Mac、Windows和Linux三个平台上都支持Golang。您可以从<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a>下载相应平台的二进制文件。</p>
 <p><img src="http://om1c35wrq.bkt.clouddn.com/001_%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85.jpg" alt=""></p>
@@ -130,7 +145,7 @@
 <p>Windows<br>从<a href="https://golang.org/dl/下载MSI安装程序。双击启动安装并遵循提示。这将在位置c中安装Golang:\Go，并且还将添加目录c:\Go\bin到您的path环境变量。" target="_blank" rel="noopener">https://golang.org/dl/下载MSI安装程序。双击启动安装并遵循提示。这将在位置c中安装Golang:\Go，并且还将添加目录c:\Go\bin到您的path环境变量。</a></p>
 <p>Linux<br>从<a href="https://golang.org/dl/下载tar文件，并将其解压到/usr/local。" target="_blank" rel="noopener">https://golang.org/dl/下载tar文件，并将其解压到/usr/local。</a></p>
 <p>将/usr/local/go/bin添加到PATH环境变量中。这应该安装在linux中。</p>
-<h3 id="2-2-windows下安装并配置环境变量"><a href="#2-2-windows下安装并配置环境变量" class="headerlink" title="2.2 windows下安装并配置环境变量"></a>2.2 windows下安装并配置环境变量</h3><p>安装步骤就不在多说什么了，一路到底</p>
+<h3 id="2-2-windows下安装并配置环境变量"><a href="#2-2-windows下安装并配置环境变量" class="headerlink" title="2.2 windows下安装并配置环境变量"></a>2.2 windows下安装并配置环境变量</h3><p>安装步骤就不再多说什么了，一路到底</p>
 <p><strong>A、配置环境变量</strong></p>
 <p>注意：如果是msi安装文件，Go语言的环境变量会自动设置好。</p>
 <p>我的电脑——右键“属性”——“高级系统设置”——“环境变量”——“系统变量”</p>
@@ -232,7 +247,7 @@
 </li>
 </ol>
 <h4 id="3-3-3-main"><a href="#3-3-3-main" class="headerlink" title="3.3.3 main"></a>3.3.3 main</h4><p>main(),是程序运行的入口。</p>
-<h1 id="四、编码规范"><a href="#四、编码规范" class="headerlink" title="四、编码规范"></a>四、编码规范</h1><h3 id="4-1-编码规范"><a href="#4-1-编码规范" class="headerlink" title="4.1 编码规范"></a>4.1 编码规范</h3><p>缩进</p>
+<h1 id="四、编码规范概要"><a href="#四、编码规范概要" class="headerlink" title="四、编码规范概要"></a>四、编码规范概要</h1><h3 id="4-1-编码规范"><a href="#4-1-编码规范" class="headerlink" title="4.1 编码规范"></a>4.1 编码规范</h3><p>缩进</p>
 <p>空格</p>
 <h3 id="4-2-注释"><a href="#4-2-注释" class="headerlink" title="4.2 注释"></a>4.2 注释</h3><ul>
 <li>单行注释是最常见的注释形式，你可以在任何地方使用以 // 开头的单行注释</li>
@@ -254,6 +269,16 @@
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/go基础/">go基础</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/go基础/">go基础</a>
+  </div>
 
 </div>
 
@@ -261,7 +286,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/04/06/第1章-简介和配置/" data-title="Bolen`s Blog" data-tsina="zliyong007" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/04/06/第1章-简介和配置/" data-title="GO基础【一】：介绍和安装 | Bolen`s Blog" data-tsina="zliyong007" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -274,17 +299,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/04/06/第2章-基本语法/" title="">
-  <strong>上一篇：</strong><br/>
-  <span>
-  (no title)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/04/06/第3章-分支循环/"  title="">
+<a href="/2018/04/06/第17章-数据结构与算法（Python）/"  title="">
  <strong>下一篇：</strong><br/> 
  <span>(no title)
 </span>
@@ -303,7 +320,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍和安装"><span class="toc-number">1.</span> <span class="toc-text">一、介绍和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-number">1.1.</span> <span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-什么是Golang"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 什么是Golang</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-为什么选择Golang"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 为什么选择Golang</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-number">1.2.</span> <span class="toc-text">2.安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1下载"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-windows下安装并配置环境变量"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 windows下安装并配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-mac系统安装并配置"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 mac系统安装并配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、搭建开发工具"><span class="toc-number">2.</span> <span class="toc-text">二、搭建开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用atom"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-使用Goland"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 使用Goland</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-其他开发工具"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 其他开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、第一个程序：HelloWorld"><span class="toc-number">3.</span> <span class="toc-text">三、第一个程序：HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-编写第一个程序"><span class="toc-number">3.0.1.</span> <span class="toc-text">3.1 编写第一个程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-第一个程序的解释说明"><span class="toc-number">3.0.2.</span> <span class="toc-text">3.2 第一个程序的解释说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-package"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">3.2.1 package</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-import"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">3.2.2  import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-main"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">3.3.3 main</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、编码规范"><span class="toc-number">4.</span> <span class="toc-text">四、编码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-编码规范"><span class="toc-number">4.0.1.</span> <span class="toc-text">4.1 编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-注释"><span class="toc-number">4.0.2.</span> <span class="toc-text">4.2 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-标识符"><span class="toc-number">4.0.3.</span> <span class="toc-text">4.3 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-语句的结尾"><span class="toc-number">4.0.4.</span> <span class="toc-text">4.4 语句的结尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-关键字"><span class="toc-number">4.0.5.</span> <span class="toc-text">4.5 关键字</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍和安装"><span class="toc-text">一、介绍和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang简史"><span class="toc-text">Golang简史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang有哪些特点？"><span class="toc-text">Golang有哪些特点？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-text">2.安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1下载"><span class="toc-text">2.1下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-windows下安装并配置环境变量"><span class="toc-text">2.2 windows下安装并配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-mac系统安装并配置"><span class="toc-text">2.3 mac系统安装并配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、搭建开发工具"><span class="toc-text">二、搭建开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用atom"><span class="toc-text">2.1 使用atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-使用Goland"><span class="toc-text">2.2 使用Goland</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-其他开发工具"><span class="toc-text">2.3 其他开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、第一个程序：HelloWorld"><span class="toc-text">三、第一个程序：HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-编写第一个程序"><span class="toc-text">3.1 编写第一个程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-第一个程序的解释说明"><span class="toc-text">3.2 第一个程序的解释说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-package"><span class="toc-text">3.2.1 package</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-import"><span class="toc-text">3.2.2  import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-main"><span class="toc-text">3.3.3 main</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、编码规范概要"><span class="toc-text">四、编码规范概要</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-编码规范"><span class="toc-text">4.1 编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-注释"><span class="toc-text">4.2 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-标识符"><span class="toc-text">4.3 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-语句的结尾"><span class="toc-text">4.4 语句的结尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-关键字"><span class="toc-text">4.5 关键字</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -318,6 +335,10 @@
 <div class="categorieslist">
 	<p class="asidetitle">Categories</p>
 		<ul>
+		
+		  
+			<li><a href="/categories/go基础/" title="go基础">go基础<sup>1</sup></a></li>
+		  
 		
 		  
 			<li><a href="/categories/others/" title="others">others<sup>1</sup></a></li>
@@ -338,6 +359,10 @@
 		
 			
 				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/go基础/" title="go基础">go基础<sup>1</sup></a></li>
 			
 		
 		</ul>
