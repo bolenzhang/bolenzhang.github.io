@@ -1,0 +1,555 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Hash、分布式节点理论及实践 | Bolen`s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Bolen Zhang">
+    
+
+    
+    <meta name="description" content="Hash及分布式节点理论及实践 Author：张立勇 Wechat: 18600724947  一、 hash在区块链中的重要作用 什么是hash 如果内容不变，生成的hash值固定不变。  go实现hash   go 实现hash 1234567891011121314151617181920212223242526272829303132333435363738394041424344pack">
+<meta name="keywords" content="区块链基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hash、分布式节点理论及实践">
+<meta property="og:url" content="http://yoursite.com/2018/04/26/unposed/Hash及分布式节点理论及实践/index.html">
+<meta property="og:site_name" content="Bolen`s Blog">
+<meta property="og:description" content="Hash及分布式节点理论及实践 Author：张立勇 Wechat: 18600724947  一、 hash在区块链中的重要作用 什么是hash 如果内容不变，生成的hash值固定不变。  go实现hash   go 实现hash 1234567891011121314151617181920212223242526272829303132333435363738394041424344pack">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-03T15:11:11.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hash、分布式节点理论及实践">
+<meta name="twitter:description" content="Hash及分布式节点理论及实践 Author：张立勇 Wechat: 18600724947  一、 hash在区块链中的重要作用 什么是hash 如果内容不变，生成的hash值固定不变。  go实现hash   go 实现hash 1234567891011121314151617181920212223242526272829303132333435363738394041424344pack">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bolen`s Blog" title="Bolen`s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bolen`s Blog">Bolen`s Blog</a></h1>
+				<h2 class="blog-motto">Summarize &amp; share</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/index">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/04/26/unposed/Hash及分布式节点理论及实践/" title="Hash、分布式节点理论及实践" itemprop="url">Hash、分布式节点理论及实践</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Bolen Zhang" target="_blank" itemprop="author">Bolen Zhang</a>
+		
+  <p class="article-time">
+    <time datetime="2018-04-26T01:58:42.000Z" itemprop="datePublished"> Published 2018-04-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hash及分布式节点理论及实践"><span class="toc-text">Hash及分布式节点理论及实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-hash在区块链中的重要作用"><span class="toc-text">一、 hash在区块链中的重要作用</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Hash及分布式节点理论及实践"><a href="#Hash及分布式节点理论及实践" class="headerlink" title="Hash及分布式节点理论及实践"></a>Hash及分布式节点理论及实践</h1><blockquote>
+<p>Author：张立勇</p>
+<p>Wechat: 18600724947</p>
+</blockquote>
+<h2 id="一、-hash在区块链中的重要作用"><a href="#一、-hash在区块链中的重要作用" class="headerlink" title="一、 hash在区块链中的重要作用"></a>一、 hash在区块链中的重要作用</h2><ol>
+<li><p>什么是hash</p>
+<p>如果内容不变，生成的hash值固定不变。</p>
+</li>
+<li><p>go实现hash</p>
+</li>
+</ol>
+<p><a href="https://golang.org/pkg/hash/#example__binaryMarshaler" title="hash" target="_blank" rel="noopener">go 实现hash</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"bytes"</span></span><br><span class="line">	<span class="string">"crypto/sha256"</span></span><br><span class="line">	<span class="string">"encoding"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">const</span> (</span><br><span class="line">		input1 = <span class="string">"The tunneling gopher digs downwards, "</span></span><br><span class="line">		input2 = <span class="string">"unaware of what he will find."</span></span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	first := sha256.New()</span><br><span class="line">	first.Write([]<span class="keyword">byte</span>(input1))</span><br><span class="line"></span><br><span class="line">	marshaler, ok := first.(encoding.BinaryMarshaler)</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		log.Fatal(<span class="string">"first does not implement encoding.BinaryMarshaler"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	state, err := marshaler.MarshalBinary()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"unable to marshal hash:"</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	second := sha256.New()</span><br><span class="line"></span><br><span class="line">	unmarshaler, ok := second.(encoding.BinaryUnmarshaler)</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		log.Fatal(<span class="string">"second does not implement encoding.BinaryUnmarshaler"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> err := unmarshaler.UnmarshalBinary(state); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"unable to unmarshal hash:"</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	first.Write([]<span class="keyword">byte</span>(input2))</span><br><span class="line">	second.Write([]<span class="keyword">byte</span>(input2))</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"%x\n"</span>, first.Sum(<span class="literal">nil</span>))</span><br><span class="line">	fmt.Println(bytes.Equal(first.Sum(<span class="literal">nil</span>), second.Sum(<span class="literal">nil</span>)))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://anders.com/blockchain/block.html" target="_blank" rel="noopener">sha256 demo</a></p>
+<p><code>metamask</code>钱包</p>
+<p>合约部署：</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/区块链基础/">区块链基础</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/区块链基础/">区块链基础</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/04/26/unposed/Hash及分布式节点理论及实践/" data-title="Hash、分布式节点理论及实践 | Bolen`s Blog" data-tsina="zliyong007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/04/27/unposed/第18章-反射/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/04/19/MySQL之路-2-查询/"  title="MySQL笔记[2]-查询">
+ <strong>下一篇：</strong><br/> 
+ <span>MySQL笔记[2]-查询
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hash及分布式节点理论及实践"><span class="toc-text">Hash及分布式节点理论及实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-hash在区块链中的重要作用"><span class="toc-text">一、 hash在区块链中的重要作用</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/MySQL笔记/" title="MySQL笔记">MySQL笔记<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/go基础/" title="go基础">go基础<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/others/" title="others">others<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/以太坊源码解读/" title="以太坊源码解读">以太坊源码解读<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/区块链基础/" title="区块链基础">区块链基础<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/go基础/" title="go基础">go基础<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MySQL基础/" title="MySQL基础">MySQL基础<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/method/" title="method">method<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/interface/" title="interface">interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/区块链基础/" title="区块链基础">区块链基础<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/以太坊源码解读/" title="以太坊源码解读">以太坊源码解读<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://liyuechun.org/" target="_blank" title="黎跃春">黎跃春</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/bolenzhang" target="_blank" title="My cnblog">My cnblog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰">阮一峰</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=zliyong007&verifier=a1405918&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 立德立言 无问西东 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/zliyong007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:zliyong007@163.com## e.g. imjark@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="Bolen Zhang">Bolen Zhang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
