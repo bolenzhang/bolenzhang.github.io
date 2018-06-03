@@ -1,0 +1,723 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>GO基础【一】：介绍和安装 | Bolen`s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Bolen Zhang">
+    
+
+    
+    <meta name="description" content="一、介绍和安装1.介绍Golang简史创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 2017年发布GO1.8、1.9版本 2018年2月16日发布GO1.10版本 Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“">
+<meta name="keywords" content="go基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GO基础【一】：介绍和安装">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/第1章-简介和配置/index.html">
+<meta property="og:site_name" content="Bolen`s Blog">
+<meta property="og:description" content="一、介绍和安装1.介绍Golang简史创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 2017年发布GO1.8、1.9版本 2018年2月16日发布GO1.10版本 Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/001_%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85.jpg">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.jpg">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.jpg">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/22188-96e2f6da75383392.png">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/language-go.jpg">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/002_%E6%8F%92%E4%BB%B6.bmp">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93.jpg">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/land1.bmp">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.bmp">
+<meta property="og:image" content="http://om1c35wrq.bkt.clouddn.com/guanjianzi.jpg">
+<meta property="og:updated_time" content="2018-05-29T14:09:02.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GO基础【一】：介绍和安装">
+<meta name="twitter:description" content="一、介绍和安装1.介绍Golang简史创立时间2007年 google作为20%项目开始研发2009年11月10日 开源，获得TIOBE年度语言2012年3月28日 发布Go1.0版本2016年8月18日 发布Go1.7版本 2017年发布GO1.8、1.9版本 2018年2月16日发布GO1.10版本 Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“">
+<meta name="twitter:image" content="http://om1c35wrq.bkt.clouddn.com/001_%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85.jpg">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bolen`s Blog" title="Bolen`s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bolen`s Blog">Bolen`s Blog</a></h1>
+				<h2 class="blog-motto">Summarize &amp; share</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/index">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/05/29/第1章-简介和配置/" title="GO基础【一】：介绍和安装" itemprop="url">GO基础【一】：介绍和安装</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Bolen Zhang" target="_blank" itemprop="author">Bolen Zhang</a>
+		
+  <p class="article-time">
+    <time datetime="2018-05-29T14:09:02.350Z" itemprop="datePublished"> Published 2018-05-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍和安装"><span class="toc-text">一、介绍和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang简史"><span class="toc-text">Golang简史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang有哪些特点？"><span class="toc-text">Golang有哪些特点？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-text">2.安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1下载"><span class="toc-text">2.1下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-windows下安装并配置环境变量"><span class="toc-text">2.2 windows下安装并配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-mac系统安装并配置"><span class="toc-text">2.3 mac系统安装并配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Ubuntu下安装配置"><span class="toc-text">2.4 Ubuntu下安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-通过apt-get安装"><span class="toc-text">2.4.1 通过apt-get安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-手动安装最新稳定版（推荐）"><span class="toc-text">2.4.2 手动安装最新稳定版（推荐）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、搭建开发工具"><span class="toc-text">二、搭建开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用atom"><span class="toc-text">2.1 使用atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-使用Goland"><span class="toc-text">2.2 使用Goland</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-其他开发工具"><span class="toc-text">2.3 其他开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、第一个程序：HelloWorld"><span class="toc-text">三、第一个程序：HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-编写第一个程序"><span class="toc-text">3.1 编写第一个程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-第一个程序的解释说明"><span class="toc-text">3.2 第一个程序的解释说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-package"><span class="toc-text">3.2.1 package</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-import"><span class="toc-text">3.2.2  import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-main"><span class="toc-text">3.3.3 main</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、编码规范概要"><span class="toc-text">四、编码规范概要</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-编码规范"><span class="toc-text">4.1 编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-注释"><span class="toc-text">4.2 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-标识符"><span class="toc-text">4.3 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-语句的结尾"><span class="toc-text">4.4 语句的结尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-关键字"><span class="toc-text">4.5 关键字</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="一、介绍和安装"><a href="#一、介绍和安装" class="headerlink" title="一、介绍和安装"></a>一、介绍和安装</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><h3 id="Golang简史"><a href="#Golang简史" class="headerlink" title="Golang简史"></a>Golang简史</h3><p>创立时间<br>2007年 google作为20%项目开始研发<br>2009年11月10日 开源，获得TIOBE年度语言<br>2012年3月28日 发布Go1.0版本<br>2016年8月18日 发布Go1.7版本</p>
+<p>2017年发布GO1.8、1.9版本</p>
+<p>2018年2月16日发布GO1.10版本</p>
+<p>Go也被称为Golang，它是由谷歌创建的一种开源、编译和静态类型的编程语言。GO语言被称为“21世纪的C语言”，因其从C语言继承了相似的表达式语法、控制流结构、基础数据类型、调用参数传值、指针等很多思想，当然也因其具有C语言似的得天独厚的优势：编译后机器码的运行效率以及和现有操作系统的无缝适配。</p>
+<p>Golang的主要目标是使高可用性和可伸缩的web应用程序的开发变得简单易行。</p>
+<h3 id="Golang有哪些特点？"><a href="#Golang有哪些特点？" class="headerlink" title="Golang有哪些特点？"></a>Golang有哪些特点？</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li><p><strong>对多线程的支持</strong> ：GO语言的动态栈使得轻量级线程goroutine的初始栈可以很小，因此，创建一个goroutine的代价很小，创建百万级的goroutine是完全可行的。go的多线程是通过Goroutines和channel实现的。</p>
+</li>
+<li><p><strong>运行效率高</strong> ：Golang是一种编译语言，源代码编译成二进制机器运行效率高。</p>
+</li>
+<li><p><strong>语言规范简单</strong></p>
+</li>
+<li><p><strong>go编译器支持静态链接：</strong>所有的go代码都可以静态地链接到一个大的fat二进制文件中，并且可以轻松地部署到云服务器中，而不用担心依赖关系。</p>
+</li>
+<li><p><strong>标准库提供了清晰的构建模块和公共接口：</strong> 包含I/O操作、文本处理、图像、密码学、网络和分布式应用程序等，并支持许多标准化的文件格式和编解码协议。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p><strong>当然go语言也并非完美的，有如下的缺点：</strong></p>
+</li>
+<li><p><strong>不算是面向对象的语言</strong> </p>
+<p>很多人说go并不是面向对象的语言，因其没有类（struct和其他语言中的类不太一样），没有继承。</p>
+</li>
+<li><p>go本身有只有很少的特性，也不太可能支持添加太多的特性。</p>
+<p>它没有隐式的类型转换，没有构造函数和析构函数，没有运算符重载，没有默认参数，没有泛型，没有异常，没有宏，没有装饰器，更没有线程局部存储</p>
+</li>
+</ul>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><h3 id="2-1下载"><a href="#2-1下载" class="headerlink" title="2.1下载"></a>2.1下载</h3><p>在Mac、Windows和Linux三个平台上都支持Golang。您可以从<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a>下载相应平台的二进制文件。</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/001_%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85.jpg" alt=""></p>
+<p>Mac OS<br>从<a href="https://golang.org/dl/下载osx安装程序。双击启动安装。按照提示，这应该在/usr/local/go中安装了Golang，并且还会将文件夹/usr/local/go/bin添加到您的PATH环境变量中。" target="_blank" rel="noopener">https://golang.org/dl/下载osx安装程序。双击启动安装。按照提示，这应该在/usr/local/go中安装了Golang，并且还会将文件夹/usr/local/go/bin添加到您的PATH环境变量中。</a></p>
+<p>Windows<br>从<a href="https://golang.org/dl/下载MSI安装程序。双击启动安装并遵循提示。这将在位置c中安装Golang:\Go，并且还将添加目录c:\Go\bin到您的path环境变量。" target="_blank" rel="noopener">https://golang.org/dl/下载MSI安装程序。双击启动安装并遵循提示。这将在位置c中安装Golang:\Go，并且还将添加目录c:\Go\bin到您的path环境变量。</a></p>
+<p>Linux<br>从<a href="https://golang.org/dl/下载tar文件，并将其解压到/usr/local。" target="_blank" rel="noopener">https://golang.org/dl/下载tar文件，并将其解压到/usr/local。</a></p>
+<p>将/usr/local/go/bin添加到PATH环境变量中。这应该安装在linux中。</p>
+<h3 id="2-2-windows下安装并配置环境变量"><a href="#2-2-windows下安装并配置环境变量" class="headerlink" title="2.2 windows下安装并配置环境变量"></a>2.2 windows下安装并配置环境变量</h3><p>安装步骤就不再多说什么了，一路到底</p>
+<p><strong>A、配置环境变量</strong></p>
+<p>注意：如果是msi安装文件，Go语言的环境变量会自动设置好。</p>
+<p>我的电脑——右键“属性”——“高级系统设置”——“环境变量”——“系统变量”</p>
+<p>​    假设GO安装于C盘根目录</p>
+<p><strong>新建：</strong></p>
+<ul>
+<li><p>GOROOT：Go安装路径（例：C:\Go）</p>
+</li>
+<li><p>GOPATH：Go工程的路径（例：E:\go）。如果有多个，就以分号分隔添加</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.jpg" alt=""></p>
+</li>
+</ul>
+<p><strong>修改：</strong></p>
+<ul>
+<li><p>Path：在path中增加：C:\Go\bin;%GOPATH%\bin;</p>
+<blockquote>
+<p>需要把GOPATH中的可执行目录也配置到环境变量中, 否则你自行下载的第三方go工具就无法使用了</p>
+</blockquote>
+<p>​</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.jpg" alt=""></p>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>工作目录就是我们用来存放开发的源代码的地方，对应的也是Go里的GOPATH这个环境变量。这个环境变量指定之后，我们编译源代码等生成的文件都会放到这个目录下，GOPATH环境变量的配置参考上面的安装Go，配置到Windows下的系统变量里。</li>
+<li>GOPATH之下主要包含三个目录: bin、pkg、src。bin目录主要存放可执行文件; pkg目录存放编译好的库文件, 主要是*.a文件; src目录下主要存放go的源文件</li>
+</ol>
+</blockquote>
+<p><strong>B、查看是否安装配置成功</strong></p>
+<p>使用快捷键win+R键，输入cmd，打开命令行提示符，在命令行中输入</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env  # 查看得到<span class="keyword">go</span>的配置信息</span><br><span class="line"><span class="keyword">go</span> version  # 查看<span class="keyword">go</span>的版本号</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-mac系统安装并配置"><a href="#2-3-mac系统安装并配置" class="headerlink" title="2.3 mac系统安装并配置"></a>2.3 mac系统安装并配置</h3><p><strong>安装</strong></p>
+<p>双击pkg包，顺着指引，即可安装成功。<br>在命令行输入 go version，获取到go的版本号，则代表安装成功。</p>
+<p><strong>配置环境变量</strong></p>
+<p>1、打开终端输入cd ~进入用户主目录;<br>2、输入ls -all命令查看是否存在.bash_profile;<br>3、存在既使用vim .bash_profile 打开文件;<br>4、输入 i 进入vim编辑模式；<br>5、输入下面代码，<br>其中 GOPATH: 日常开发的根目录。GOBIN:是GOPATH下的bin目录。</p>
+<blockquote>
+<p><code>export GOPATH=/Users/ruby/go</code></p>
+<p><code>export GOBIN=$GOPATH/bin</code></p>
+<p><code>export PATH=$PATH:$GOBIN</code></p>
+</blockquote>
+<p>6、点击ESC，并输入 :wq 保存并退出编辑。可输入vim .bash_profile 查看是否保存成功。</p>
+<p>7、输入source ~/.bash_profile 完成对golang环境变量的配置，配置成功没有提示。<br>8、输入go env 查看配置结果</p>
+<h3 id="2-4-Ubuntu下安装配置"><a href="#2-4-Ubuntu下安装配置" class="headerlink" title="2.4 Ubuntu下安装配置"></a>2.4 Ubuntu下安装配置</h3><p>本例以Ubuntu16.04为例介绍，有两种安装方式：</p>
+<h4 id="2-4-1-通过apt-get安装"><a href="#2-4-1-通过apt-get安装" class="headerlink" title="2.4.1 通过apt-get安装"></a>2.4.1 通过apt-get安装</h4><p>1、 安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install golang</span><br></pre></td></tr></table></figure>
+<p>2、设置GOPATH变量</p>
+<p>GOPATH是扩展库的目录，Go先搜索标准库目录，然后搜索GOPATH库目录，所有的非标准库都放在GOPATH下。以GOPATH为“/usr/local/go”目录为例子：</p>
+<p>（1）把export GOPATH=/opt/go加入到~/.bashrc文件的最后。<br>（2）source ~/.bashrc 重新加载配置</p>
+<p>这样就加好了GOPATH。注意：apt-get命令安装只能安装go1.6版本现在很多开源项目都用上了1.7以上建议手动安装更高版本。</p>
+<h4 id="2-4-2-手动安装最新稳定版（推荐）"><a href="#2-4-2-手动安装最新稳定版（推荐）" class="headerlink" title="2.4.2 手动安装最新稳定版（推荐）"></a>2.4.2 手动安装最新稳定版（推荐）</h4><p>1、以官方最新稳定版1.10.1为例下载go1.10.1.linux-amd64.tar.gz压缩包。官方下载地址：<a href="https://golang.org/dl/，但官网经常打不开，所以推荐[go语言学习中文网](https://studygolang.com/dl)下载。" target="_blank" rel="noopener">https://golang.org/dl/，但官网经常打不开，所以推荐[go语言学习中文网](https://studygolang.com/dl)下载。</a></p>
+<p>2、解压</p>
+<blockquote>
+<p>注意如果用虚拟机的话，可以在宿主机下载后传到Ubuntu，Ubuntu推荐下用<code>lrzsz</code>与宿主机互传文件。</p>
+</blockquote>
+<p><code>tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz</code></p>
+<p>执行以下命令验证安装结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/go/bin/go version</span><br></pre></td></tr></table></figure>
+<p><strong>3、环境变量的配置</strong></p>
+<p>环境变量可以在个人环境变量~/.bashrc，也可以在全局环境变量配置文件/etc/profile下，推荐后者：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile #文件末尾添加以下内容</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export GOPATH=$HOME/GoProject</span><br><span class="line">export GOROOT=/usr/local/<span class="keyword">go</span></span><br><span class="line">export GOARCH=<span class="number">386</span></span><br><span class="line">export GOOS=linux</span><br><span class="line">export GOBIN=$GOROOT/bin/</span><br><span class="line">export GOTOOLS=$GOROOT/pkg/tool</span><br><span class="line">export PATH=$PATH:$GOBIN:$GOPATH/bin</span><br><span class="line">-------------------------------------or</span><br><span class="line">export GOROOT=/usr/bin/<span class="keyword">go</span>  </span><br><span class="line">export GOPATH=/root/home/goproject</span><br><span class="line">export GOBIN=/root/home/goproject/bin</span><br><span class="line">export GOLIB=/root/home/goproject/</span><br><span class="line">export PATH=$PATH:$GOBIN:$GOPATH/bin:$GOROOT/bin</span><br></pre></td></tr></table></figure>
+<p>重新加载 profile 文件，加载环境变量到内存:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<p>4、测试</p>
+<p>编写hello.go文件，测试是否安装成功，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line">func main() &#123;</span><br><span class="line">    fmt.Println(&quot;Hello World!&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用go run或go build测试是否成功打印输出Hello World，详见3.1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@zly-virtual-machine:~# go build hello.go </span><br><span class="line">root@zly-virtual-machine:~# ls</span><br><span class="line">hello  hello.go</span><br><span class="line">root@zly-virtual-machine:~# ./hello </span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+<p>环境变量查看：略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go env</span><br></pre></td></tr></table></figure>
+<p>5、新建GOPATH下的三个目录</p>
+<p>注意：此处一定要手动建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $GOPATH/&#123;bin,pkg,src&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>需要把GOPATH中的可执行目录也配置到环境变量中, 否则你自行下载的第三方go工具就无法使用了</strong></p>
+<h1 id="二、搭建开发工具"><a href="#二、搭建开发工具" class="headerlink" title="二、搭建开发工具"></a>二、搭建开发工具</h1><h2 id="2-1-使用atom"><a href="#2-1-使用atom" class="headerlink" title="2.1 使用atom"></a>2.1 使用atom</h2><p>安装好atom工具，然后安装go-plus插件和atom-terminal-panel等插件。</p>
+<p>1.安装go-plus插件，这个插件提供了Atom中几乎所有go语言开发的支持，包括 tools, build flows, linters, vet 和 coverage tools。它还包含很多代码片段和一些其它特性。</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/22188-96e2f6da75383392.png" alt=""></p>
+<p>2.language-go</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/language-go.jpg" alt=""></p>
+<p>3.安装file-icon插件，它提针对不同后缀的文件，提供了大量的icon显示。</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/002_%E6%8F%92%E4%BB%B6.bmp" alt=""></p>
+<p>4.设置字体大小等</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93.jpg" alt=""></p>
+<blockquote>
+<p>atom快捷键大全，参照：<a href="https://www.cnblogs.com/hubgit/p/5130192.html" target="_blank" rel="noopener">https://www.cnblogs.com/hubgit/p/5130192.html</a></p>
+</blockquote>
+<h2 id="2-2-使用Goland"><a href="#2-2-使用Goland" class="headerlink" title="2.2 使用Goland"></a>2.2 使用Goland</h2><p>下载地址：<a href="http://www.jetbrains.com/go/" target="_blank" rel="noopener">http://www.jetbrains.com/go/</a></p>
+<p>傻瓜式安装，一路next，直到完成。</p>
+<p>打开Goland工具</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/land1.bmp" alt=""></p>
+<p>创建项目：</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.bmp" alt=""></p>
+<p>常用快捷键：<a href="https://blog.csdn.net/benben_2015/article/details/78813670" target="_blank" rel="noopener">https://blog.csdn.net/benben_2015/article/details/78813670</a></p>
+<h2 id="2-3-其他开发工具"><a href="#2-3-其他开发工具" class="headerlink" title="2.3 其他开发工具"></a>2.3 其他开发工具</h2><p>比如sublime text，editplus，notpad++，eclipse等等。。</p>
+<h1 id="三、第一个程序：HelloWorld"><a href="#三、第一个程序：HelloWorld" class="headerlink" title="三、第一个程序：HelloWorld"></a>三、第一个程序：HelloWorld</h1><h3 id="3-1-编写第一个程序"><a href="#3-1-编写第一个程序" class="headerlink" title="3.1 编写第一个程序"></a>3.1 编写第一个程序</h3><p>1.打开编辑器创建一个新的helloworld.go文件，并输入以下内容：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">/* 输出 */</span></span><br><span class="line">   fmt.Println(<span class="string">"Hello, World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.执行go程序</p>
+<p>执行go程序由几种方式</p>
+<p>方式一：使用go run命令</p>
+<p>​    step1：使用快捷键win+R，输入cmd打开命令行提示符</p>
+<p>​    step2：进入helloworld.go所在的目录</p>
+<p>​    step3：输入go run helloworld.go命令并观察运行结果。</p>
+<p>方式二：使用go build命令</p>
+<p>​    step1：使用快捷键win+R，输入cmd打开命令行提示符</p>
+<p>​    step2：进入helloworld.go所在的目录</p>
+<p>​    step3：输入go build helloworld.go命令进行编译，产生同名的helloworld.exe文件</p>
+<p>​    step4：输入helloworld.exe，执行</p>
+<p>方式三：使用 go playground </p>
+<p>​    step1：打开一下网址<a href="https://play.golang.org/" target="_blank" rel="noopener">https://play.golang.org/</a></p>
+<p>​    </p>
+<h3 id="3-2-第一个程序的解释说明"><a href="#3-2-第一个程序的解释说明" class="headerlink" title="3.2 第一个程序的解释说明"></a>3.2 第一个程序的解释说明</h3><h4 id="3-2-1-package"><a href="#3-2-1-package" class="headerlink" title="3.2.1 package"></a>3.2.1 package</h4><ul>
+<li>在同一个包下面的文件属于同一个工程文件，不用<code>import</code>包，可以直接使用</li>
+<li>在同一个包下面的所有文件的package名，都是一样的</li>
+<li>在同一个包下面的文件<code>package</code>名都建议设为是该目录名，但也可以不是</li>
+</ul>
+<h4 id="3-2-2-import"><a href="#3-2-2-import" class="headerlink" title="3.2.2  import"></a>3.2.2  import</h4><p>import “fmt” 告诉 Go 编译器这个程序需要使用 fmt 包的函数，fmt 包实现了格式化 IO（输入/输出）的函数</p>
+<p>可以是相对路径也可以是绝对路径，推荐使用绝对路径（起始于工程根目录）</p>
+<ol>
+<li><p>点操作<br>我们有时候会看到如下的方式导入包</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(</span><br><span class="line">	. <span class="string">"fmt"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这个点操作的含义就是这个包导入之后在你调用这个包的函数时，你可以省略前缀的包名，也就是前面你调</p>
+<p>用的<code>fmt.Println(&quot;hello world&quot;)</code>可以省略的写成<code>Println(&quot;hello world&quot;)</code></p>
+</li>
+<li><p>别名操作<br>别名操作顾名思义我们可以把包命名成另一个我们用起来容易记忆的名字</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(</span><br><span class="line">	f <span class="string">"fmt"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>别名操作的话调用包函数时前缀变成了我们的前缀，即<code>f.Println(&quot;hello world&quot;)</code></p>
+</li>
+<li><p>_操作<br>这个操作经常是让很多人费解的一个操作符，请看下面这个import</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"database/sql"</span></span><br><span class="line">  _ <span class="string">"github.com/ziutek/mymysql/godrv"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>_操作其实是引入该包，而不直接使用包里面的函数，而是调用了该包里面的init函数</p>
+</li>
+</ol>
+<h4 id="3-3-3-main"><a href="#3-3-3-main" class="headerlink" title="3.3.3 main"></a>3.3.3 main</h4><p>main(),是程序运行的入口。</p>
+<h1 id="四、编码规范概要"><a href="#四、编码规范概要" class="headerlink" title="四、编码规范概要"></a>四、编码规范概要</h1><h3 id="4-1-编码规范"><a href="#4-1-编码规范" class="headerlink" title="4.1 编码规范"></a>4.1 编码规范</h3><p>缩进</p>
+<p>空格</p>
+<h3 id="4-2-注释"><a href="#4-2-注释" class="headerlink" title="4.2 注释"></a>4.2 注释</h3><ul>
+<li>单行注释是最常见的注释形式，你可以在任何地方使用以 // 开头的单行注释</li>
+<li>多行注释也叫块注释，均已以 /<em> 开头，并以 </em>/ 结尾，且不可以嵌套使用，多行注释一般用于包的文档描述或注释成块的代码片段</li>
+</ul>
+<h3 id="4-3-标识符"><a href="#4-3-标识符" class="headerlink" title="4.3 标识符"></a>4.3 标识符</h3><p>Go标识符是用来标识变量、函数或任何其他用户定义项的名称。标识符以字母a到Z或a到Z或下划线开头，后面跟着零或更多的字母、下划线和数字(0到9)。Go不允许在标识符中使用@、$和%等标点符号。Go是一种区分大小写的编程语言。因此，Manpower和manpower是两个不同的标识符。</p>
+<blockquote>
+<ol>
+<li>当标识符（包括常量、变量、类型、函数名、结构字段等等）以一个大写字母开头，如：Group1，那么使用这种形式的标识符的对象就<strong>可以被外部包的代码所使用</strong>（客户端程序需要先导入这个包），这被称为导出（像面向对象语言中的 public）；</li>
+<li><strong>标识符如果以小写字母开头，则对包外是不可见的，但是他们在整个包的内部是可见并且可用的</strong>（像面向对象语言中的 private ）</li>
+</ol>
+</blockquote>
+<h3 id="4-4-语句的结尾"><a href="#4-4-语句的结尾" class="headerlink" title="4.4 语句的结尾"></a>4.4 语句的结尾</h3><p>Go语言中是不需要类似于Java需要冒号结尾，默认一行就是一条数据</p>
+<p>如果你打算将多个语句写在同一行，它们则必须使用 <strong>;</strong> </p>
+<h3 id="4-5-关键字"><a href="#4-5-关键字" class="headerlink" title="4.5 关键字"></a>4.5 关键字</h3><p>下面的列表显示了Go中的保留字。这些保留字不能用作常量或变量或任何其他标识符名称。</p>
+<p><img src="http://om1c35wrq.bkt.clouddn.com/guanjianzi.jpg" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/go基础/">go基础</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/go基础/">go基础</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/05/29/第1章-简介和配置/" data-title="GO基础【一】：介绍和安装 | Bolen`s Blog" data-tsina="zliyong007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/06/01/go项目实战 分布式网络爬虫/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/05/29/以太坊源码解读【1】/"  title="以太坊源码解读">
+ <strong>下一篇：</strong><br/> 
+ <span>以太坊源码解读
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍和安装"><span class="toc-text">一、介绍和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang简史"><span class="toc-text">Golang简史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Golang有哪些特点？"><span class="toc-text">Golang有哪些特点？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装"><span class="toc-text">2.安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1下载"><span class="toc-text">2.1下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-windows下安装并配置环境变量"><span class="toc-text">2.2 windows下安装并配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-mac系统安装并配置"><span class="toc-text">2.3 mac系统安装并配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Ubuntu下安装配置"><span class="toc-text">2.4 Ubuntu下安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-通过apt-get安装"><span class="toc-text">2.4.1 通过apt-get安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-手动安装最新稳定版（推荐）"><span class="toc-text">2.4.2 手动安装最新稳定版（推荐）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、搭建开发工具"><span class="toc-text">二、搭建开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用atom"><span class="toc-text">2.1 使用atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-使用Goland"><span class="toc-text">2.2 使用Goland</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-其他开发工具"><span class="toc-text">2.3 其他开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、第一个程序：HelloWorld"><span class="toc-text">三、第一个程序：HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-编写第一个程序"><span class="toc-text">3.1 编写第一个程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-第一个程序的解释说明"><span class="toc-text">3.2 第一个程序的解释说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-package"><span class="toc-text">3.2.1 package</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-import"><span class="toc-text">3.2.2  import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-main"><span class="toc-text">3.3.3 main</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、编码规范概要"><span class="toc-text">四、编码规范概要</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-编码规范"><span class="toc-text">4.1 编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-注释"><span class="toc-text">4.2 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-标识符"><span class="toc-text">4.3 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-语句的结尾"><span class="toc-text">4.4 语句的结尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-关键字"><span class="toc-text">4.5 关键字</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/MySQL笔记/" title="MySQL笔记">MySQL笔记<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/go基础/" title="go基础">go基础<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/others/" title="others">others<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/以太坊源码解读/" title="以太坊源码解读">以太坊源码解读<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/go基础/" title="go基础">go基础<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MySQL基础/" title="MySQL基础">MySQL基础<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/method/" title="method">method<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/interface/" title="interface">interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/以太坊源码解读/" title="以太坊源码解读">以太坊源码解读<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://liyuechun.org/" target="_blank" title="黎跃春">黎跃春</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/bolenzhang" target="_blank" title="My cnblog">My cnblog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰">阮一峰</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=zliyong007&verifier=a1405918&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 立德立言 无问西东 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/zliyong007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:zliyong007@163.com## e.g. imjark@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="Bolen Zhang">Bolen Zhang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
