@@ -1,0 +1,449 @@
+
+  
+    <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Bolen`s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Bolen Zhang">
+    
+
+    
+    <meta name="description" content="1、单任务版爬虫总体算法1.1 单任务版爬虫总体算法   1.2 解析器 输入时要把gbk转换成utf-8城市和人的解析器不同，每个url对应一个解析器， 1.3 爬虫任务总体架构 1.3 单任务版爬虫架构 2、单任务爬虫代码2.1项目总体结构及代码图片 项目包结构解析：  zhenai  parser按业务来分，由于我们爬虫解析的是珍爱网，所以命名为zhenai,以后爬别的再建包，这样更具扩展性">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bolen`s Blog">
+<meta property="og:url" content="http://yoursite.com/unposed/go项目实战 分布式网络爬虫.html">
+<meta property="og:site_name" content="Bolen`s Blog">
+<meta property="og:description" content="1、单任务版爬虫总体算法1.1 单任务版爬虫总体算法   1.2 解析器 输入时要把gbk转换成utf-8城市和人的解析器不同，每个url对应一个解析器， 1.3 爬虫任务总体架构 1.3 单任务版爬虫架构 2、单任务爬虫代码2.1项目总体结构及代码图片 项目包结构解析：  zhenai  parser按业务来分，由于我们爬虫解析的是珍爱网，所以命名为zhenai,以后爬别的再建包，这样更具扩展性">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E6%80%BB%E4%BD%93%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E6%80%BB%E4%BD%93%E7%AE%97%E6%B3%952.png">
+<meta property="og:image" content="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E6%80%BB%E4%BD%93%E7%AE%97%E6%B3%953-%E8%A7%A3%E6%9E%90%E5%99%A8.png">
+<meta property="og:image" content="http://p8azvgsnq.bkt.clouddn.com/%E8%A7%A3%E6%9E%90%E5%99%A8parser.png">
+<meta property="og:image" content="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://p8azvgsnq.bkt.clouddn.com/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%88%AC%E8%99%AB%E6%9E%B6%E6%9E%84.png">
+<meta property="og:updated_time" content="2018-06-01T08:55:31.582Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bolen`s Blog">
+<meta name="twitter:description" content="1、单任务版爬虫总体算法1.1 单任务版爬虫总体算法   1.2 解析器 输入时要把gbk转换成utf-8城市和人的解析器不同，每个url对应一个解析器， 1.3 爬虫任务总体架构 1.3 单任务版爬虫架构 2、单任务爬虫代码2.1项目总体结构及代码图片 项目包结构解析：  zhenai  parser按业务来分，由于我们爬虫解析的是珍爱网，所以命名为zhenai,以后爬别的再建包，这样更具扩展性">
+<meta name="twitter:image" content="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E6%80%BB%E4%BD%93%E7%AE%97%E6%B3%95.png">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+      <body>
+        <header>
+          
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bolen`s Blog" title="Bolen`s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bolen`s Blog">Bolen`s Blog</a></h1>
+				<h2 class="blog-motto">Summarize &amp; share</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/index">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+        </header>
+        <div id="container">
+          <div id="main" class="page" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/unposed/go项目实战 分布式网络爬虫.html" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Bolen Zhang" target="_blank" itemprop="author">Bolen Zhang</a>
+		
+  <p class="article-time">
+    <time datetime="2018-06-03T15:18:20.423Z" itemprop="datePublished"> Published 2018-06-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<h2 id="1、单任务版爬虫总体算法"><a href="#1、单任务版爬虫总体算法" class="headerlink" title="1、单任务版爬虫总体算法"></a>1、单任务版爬虫总体算法</h2><h3 id="1-1-单任务版爬虫总体算法"><a href="#1-1-单任务版爬虫总体算法" class="headerlink" title="1.1 单任务版爬虫总体算法"></a>1.1 单任务版爬虫总体算法</h3><p><img src="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E6%80%BB%E4%BD%93%E7%AE%97%E6%B3%95.png" alt=""></p>
+<p><img src="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E6%80%BB%E4%BD%93%E7%AE%97%E6%B3%952.png" alt=""></p>
+<p><img src="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E6%80%BB%E4%BD%93%E7%AE%97%E6%B3%953-%E8%A7%A3%E6%9E%90%E5%99%A8.png" alt=""></p>
+<h3 id="1-2-解析器"><a href="#1-2-解析器" class="headerlink" title="1.2 解析器"></a>1.2 解析器</h3><p><img src="http://p8azvgsnq.bkt.clouddn.com/%E8%A7%A3%E6%9E%90%E5%99%A8parser.png" alt=""></p>
+<p>输入时要把gbk转换成utf-8城市和人的解析器不同，每个url对应一个解析器，</p>
+<h3 id="1-3-爬虫任务总体架构"><a href="#1-3-爬虫任务总体架构" class="headerlink" title="1.3 爬虫任务总体架构"></a>1.3 爬虫任务总体架构</h3><p><img src="http://p8azvgsnq.bkt.clouddn.com/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84.png" alt="爬虫总体架构"></p>
+<h3 id="1-3-单任务版爬虫架构"><a href="#1-3-单任务版爬虫架构" class="headerlink" title="1.3 单任务版爬虫架构"></a>1.3 单任务版爬虫架构</h3><p><img src="http://p8azvgsnq.bkt.clouddn.com/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%88%AC%E8%99%AB%E6%9E%B6%E6%9E%84.png" alt=""></p>
+<h2 id="2、单任务爬虫代码"><a href="#2、单任务爬虫代码" class="headerlink" title="2、单任务爬虫代码"></a>2、单任务爬虫代码</h2><h3 id="2-1项目总体结构及代码"><a href="#2-1项目总体结构及代码" class="headerlink" title="2.1项目总体结构及代码"></a>2.1项目总体结构及代码</h3><p>图片</p>
+<p><strong>项目包结构解析：</strong></p>
+<ul>
+<li><code>zhenai</code>  parser按业务来分，由于我们爬虫解析的是珍爱网，所以命名为<code>zhenai</code>,以后爬别的再建包，这样更具扩展性。</li>
+<li>​</li>
+</ul>
+<h3 id="2-2-用户信息解析器"><a href="#2-2-用户信息解析器" class="headerlink" title="2.2 用户信息解析器"></a>2.2 用户信息解析器</h3><h3 id="2-3-城市解析器"><a href="#2-3-城市解析器" class="headerlink" title="2.3 城市解析器"></a>2.3 城市解析器</h3><p>fetcher.go</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fetcher</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"golang.org/x/text/transform"</span></span><br><span class="line">	<span class="string">"golang.org/x/text/encoding"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"bufio"</span></span><br><span class="line">	<span class="string">"golang.org/x/net/html/charset"</span></span><br><span class="line">	<span class="string">"golang.org/x/text/encoding/unicode"</span></span><br><span class="line">	<span class="comment">//"errors"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fetch</span><span class="params">(url <span class="keyword">string</span>)</span> <span class="params">([]<span class="keyword">byte</span>,error)</span></span>&#123;</span><br><span class="line">	resp, err := http.Get(url)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>,err</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line">	<span class="keyword">if</span> resp.StatusCode != http.StatusOK &#123;</span><br><span class="line">		<span class="comment">//fmt.Println("Error: status code", resp.StatusCode)</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>,</span><br><span class="line">			<span class="comment">//errors.New("wrong status code") // return error method1</span></span><br><span class="line">			fmt.Errorf(<span class="string">"wrong status code: %d"</span>,resp.StatusCode) <span class="comment">//method 2</span></span><br><span class="line">	&#125;</span><br><span class="line">	bodyReader:=bufio.NewReader(resp.Body)</span><br><span class="line">	e:=determinEncoding(bodyReader) <span class="comment">//自动检测charset</span></span><br><span class="line">	utf8Reader:=transform.NewReader(bodyReader,e.NewDecoder())</span><br><span class="line">	<span class="keyword">return</span> ioutil.ReadAll(utf8Reader)</span><br><span class="line">	<span class="comment">//fmt.Printf("%s\n", all)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//注意这里不能传io.Reader，否则上面的utf8Reader就不会从头读，而是从1025字节开始读。</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">determinEncoding</span><span class="params">( r *bufio.Reader)</span> <span class="title">encoding</span>.<span class="title">Encoding</span></span>&#123;</span><br><span class="line">	bytes,err:=r.Peek(<span class="number">1024</span>)</span><br><span class="line">	<span class="keyword">if</span> err !=<span class="literal">nil</span>&#123;</span><br><span class="line">		log.Printf(<span class="string">"Fetcher error: %v"</span>,err)</span><br><span class="line">		<span class="keyword">return</span> unicode.UTF8</span><br><span class="line">	&#125;</span><br><span class="line">	e,_,_:=charset.DetermineEncoding(bytes,<span class="string">""</span>)</span><br><span class="line">	<span class="keyword">return</span> e</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>fetcher功能，给一个url，获取内容并进行转码。</p>
+<p>engine.go</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests = append(requests, parseResult.Requests...)？</span><br></pre></td></tr></table></figure>
+<h2 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h2><h3 id="go语言没有的元素"><a href="#go语言没有的元素" class="headerlink" title="go语言没有的元素"></a>go语言没有的元素</h3><ul>
+<li><p>类、继承、多态、重载</p>
+<ul>
+<li>最好不要模拟上述方式，即使在面向对象的世界里，也流行变继承为组合的思维，go语言为组合提供了便捷的支持。</li>
+</ul>
+</li>
+<li><p>try/catch/finally</p>
+<ul>
+<li>太多错误被当作异常，很多c++项目组本身禁用try/catch，try/catch在产品代码中不能减小开发人员的负担；</li>
+<li>go语言中有defer/panic/recover模式</li>
+</ul>
+</li>
+<li><p>泛型</p>
+<ul>
+<li>泛型作为模版类型<ul>
+<li>go语言提供了对duck typing和接口组合</li>
+</ul>
+</li>
+<li>泛型约束参数类型<ul>
+<li>go语言本身自带强类型的slice、map、channel</li>
+<li>实在不行可以使用type assertion甚至go generate来实现自己的泛型</li>
+<li>泛型支持是作者唯一态度不强硬的点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>构造函数/析构函数</p>
+<ul>
+<li>大型项目中很少使用构造函数，多使用工厂函数；</li>
+<li>值类型的构造由结构体初始化语法实现；</li>
+<li>析构函数与垃圾回收不匹配</li>
+</ul>
+</li>
+<li><p>操作符重载</p>
+<p>​</p>
+</li>
+<li><p>assert（一般在测试中用，参数不空等）</p>
+</li>
+</ul>
+<h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
+<li>变量</li>
+<li>选择，循环</li>
+<li>指针，数组（切片是数组的视图），容器（map，leetcode经典面试题，查找不重复子串）</li>
+</ul>
+<h3 id="面向接口"><a href="#面向接口" class="headerlink" title="面向接口"></a>面向接口</h3><ul>
+<li>结构体</li>
+<li>duck typing的概念</li>
+<li>利用接口实现组合的思想</li>
+</ul>
+<h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><p>go语言函数的写法非常友好</p>
+<ul>
+<li>闭包的概念</li>
+<li>树的遍历，斐波那契数列，甚至为函数也提供了接口？（go语言中的接口不是一定要对结构体实现的，随便什么类型）</li>
+</ul>
+<h3 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h3><ul>
+<li>资源管理、错误处理（defer/panic/recover）</li>
+<li>测试和文档（表格驱动测试）</li>
+<li>性能调优（benchmark和profile功能？）</li>
+</ul>
+<h3 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h3><ul>
+<li>goroutine和channel</li>
+<li>理解调度器（非抢占式多任务，在交出控制权的点上，go进行了优化）</li>
+<li>多样的例题</li>
+</ul>
+<h3 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h3><ul>
+<li>fmt/log</li>
+<li>errors</li>
+<li>io, bufio(给io的reader和writer进行包装，因为有了buffer从而提升性能)</li>
+<li>time( 其中的time.after可以放在Select里进行超时的动作)</li>
+<li>net/http , net/rpc  json rpc</li>
+<li>html/template(很容易搭建后台管理页面、维护页面等对界面要求不高，但对功能要求比较高的页面)</li>
+<li>charset、encoding、unicode、utf8</li>
+<li>strings、bytes、strconv</li>
+<li>regexp</li>
+<li>flag</li>
+<li>math（欧拉公式）</li>
+<li>os（打开文件）</li>
+<li>pprof（性能调优，网络服务器中import它，能很方便的获取性能日志）</li>
+<li>runtime（可以作很多运行时相关的事，项目中介绍了利用runtime.goschedule在goroutine中把控制权交出）</li>
+<li>reflect（通常项目中尽量少用反射）</li>
+<li>testing</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/unposed/go项目实战 分布式网络爬虫.html" data-title="Bolen`s Blog" data-tsina="zliyong007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+	
+
+
+
+</div>  
+        </div>
+        <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 立德立言 无问西东 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/zliyong007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:zliyong007@163.com## e.g. imjark@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="Bolen Zhang">Bolen Zhang</a>
+		
+		
+		</p>
+</div>
+</footer>
+        <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+      </body>
+     </html>
+     
